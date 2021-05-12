@@ -1,0 +1,96 @@
+﻿<Page x:Class="BookStore.BasterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BookStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BasterPage">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/Background.jpg"/>
+        </Grid.Background>
+        <DataGrid Name="DataTableBasket" Visibility="Hidden"  HorizontalAlignment="Left" Height="319" Margin="153,76,0,0" IsReadOnly="True" VerticalAlignment="Top" Width="613" Background="{x:Null}">
+            <DataGrid.BorderBrush>
+                <ImageBrush/>
+            </DataGrid.BorderBrush>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Книга" MaxWidth="53">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Photos}" Width="100" Height="50"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Названия книги" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="15" Text="{Binding Name_book}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Цена">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="15" Text="{Binding Price}" VerticalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Количество" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:Name="DataTemplate">
+                            <DockPanel>
+                                <Button Height="30" Width="30" Content="+" Click="AddCountButton_Click"/>
+                                <Label Height="40" Width="40" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Content="{Binding Count}" x:Name="CountProductLabel"/>
+                                <Button Height="30" Width="30" Content="-" Click="SubCountButton_Click"/>
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Сумма к оплате">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock FontSize="15" VerticalAlignment="Center" Text="{Binding Total_price}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="ButtonUpdate" Content="Товар" HorizontalAlignment="Left" Margin="0,101,0,0" VerticalAlignment="Top" Width="100" Click="ButtonUpdate_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="0,330,0,0" VerticalAlignment="Top" Width="100" Click="ButtonGoBack_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button Name="BuyButton" Content="Купить" HorizontalAlignment="Left" Margin="0,126,0,0" VerticalAlignment="Top" Width="100" Click="BuyButton_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="-1,151,0,0" VerticalAlignment="Top" Width="101" Click="DeleteButton_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Page>

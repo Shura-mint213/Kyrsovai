@@ -1,0 +1,79 @@
+﻿<Page x:Class="BookStore.OrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BookStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrderPage">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/Background.jpg"/>
+        </Grid.Background>
+        <DataGrid Visibility="Hidden" Name="OrderDataGrid" HorizontalAlignment="Left" IsReadOnly="True" Height="266" Margin="103,90,0,0" VerticalAlignment="Top" Width="566">
+            <DataGrid.BorderBrush>
+                <ImageBrush/>
+            </DataGrid.BorderBrush>
+            <DataGrid.Background>
+                <ImageBrush/>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*" Header="Код заказа">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock  FontSize="15" Text="{Binding Code_orders}" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Логин">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock  FontSize="15" Text="{Binding Login_user}" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Дата заказа">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock  FontSize="15" Text="{Binding Orders_date}" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Цена">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock  FontSize="15" Text="{Binding Price}" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+            <Button Name="OrderButton" Content="Заказы" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top" Width="98" Click="OrderButton_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button Name="GoBack" Content="Назад" HorizontalAlignment="Left" Margin="0,320,0,0" VerticalAlignment="Top" Width="98" Click="GoBack_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+        <Button Name="ClearButton" Content="Заказ пришел" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top" Width="103" Click="ClearButton_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Page>
