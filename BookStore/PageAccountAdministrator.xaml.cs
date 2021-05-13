@@ -226,9 +226,9 @@ namespace BookStore
                         Books.Add(st);
                     }
                     DataTableProduct.ItemsSource = Books;
-                    DataTableProduct.Columns[4].Visibility = Visibility.Hidden;
                     DataTableProduct.Columns[5].Visibility = Visibility.Hidden;
                     DataTableProduct.Columns[6].Visibility = Visibility.Hidden;
+                    DataTableProduct.Columns[7].Visibility = Visibility.Hidden;
                 }
                 else
                 {
