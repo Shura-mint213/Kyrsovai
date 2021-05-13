@@ -18,6 +18,13 @@ namespace BookStore
 {
     public partial class PageAccountAdministrator : Page
     {
+        public class Order
+        {
+            public string Code_orders { get; set; }
+            public string Login_user { get; set; }
+            public string Orders_date { get; set; }
+            public string Price { get; set; }
+        }
         public class Book
         {
             public byte[] Photos { get; set; }
@@ -33,6 +40,43 @@ namespace BookStore
             public string Passport { get; set; }
         }
         public string Login { get; set; }
+        public void Order_product()
+        {
+            try
+            {
+                string sqlExpression = "SELECT Code_order, Buyers_login, Date_order, Total_summ " +
+                    "FROM dbo.Orders ";
+                SqlCommand command = new SqlCommand(sqlExpression, Manager.connection);
+                List<Order> Orders = new List<Order>();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Order st = new Order();
+                        st.Code_orders = reader[0].ToString();
+                        st.Login_user = reader[1].ToString();
+                        st.Orders_date = reader[2].ToString().Substring(0, reader[2].ToString().Length - 8);
+                        st.Price = reader[3].ToString();
+                        Orders.Add(st);
+                    }
+                    OrderDataGrid.ItemsSource = Orders;
+                    OrderDataGrid.Columns[5].Visibility = Visibility.Hidden;
+                    OrderDataGrid.Columns[6].Visibility = Visibility.Hidden;
+                    OrderDataGrid.Columns[7].Visibility = Visibility.Hidden;
+                    OrderDataGrid.Columns[8].Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    MessageBox.Show("Нет заказов");
+                }
+                reader.Close();
+            }
+            catch (SqlException er)
+            {
+                MessageBox.Show((er.Number).ToString() + " " + er.Message);
+            }
+        }
         public void Admin_table()
         {
             try
@@ -61,7 +105,6 @@ namespace BookStore
                     DataTableAdmin.Columns[8].Visibility = Visibility.Hidden;
                     DataTableAdmin.Columns[9].Visibility = Visibility.Hidden;
                     DataTableAdmin.Columns[10].Visibility = Visibility.Hidden;
-
                 }
                 else
                 {
@@ -94,6 +137,8 @@ namespace BookStore
 
         private void Product_Click(object sender, RoutedEventArgs e)
         {
+            OrderDataGrid.Visibility = Visibility.Hidden;
+            DataTableProduct.Visibility = Visibility.Hidden;
             DataTableProduct.Visibility = Visibility.Visible;
             DataTableAdmin.Visibility = Visibility.Hidden;
             try
@@ -133,6 +178,7 @@ namespace BookStore
         private void AdminButton_Click(object sender, RoutedEventArgs e)
         {
             DataTableProduct.Visibility = Visibility.Hidden;
+            OrderDataGrid.Visibility = Visibility.Hidden;
             DataTableAdmin.Visibility = Visibility.Visible;
             Admin_table();
         }
@@ -207,6 +253,8 @@ namespace BookStore
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            OrderDataGrid.Visibility = Visibility.Hidden;
+            DataTableAdmin.Visibility = Visibility.Hidden;
             DataTableProduct.Visibility = Visibility.Visible;
             try
             {
@@ -264,6 +312,32 @@ namespace BookStore
                 }
                 reader.Close();
                 Manager.FrameMainWindow.Navigate(new EditProductPage(Login, Code_book));
+            }
+        }
+
+        private void OrderProduct_Click(object sender, RoutedEventArgs e)
+        {
+            OrderDataGrid.Visibility = Visibility.Visible;
+            DataTableAdmin.Visibility = Visibility.Hidden;
+            DataTableProduct.Visibility = Visibility.Hidden;
+            Order_product();
+        }
+        private void DeleteOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            Order order = (Order)OrderDataGrid.SelectedItem;
+            try
+            {
+                string SqlExpresion = "Delete from Orders where Code_order = @Code_orders_vulue";
+                SqlCommand command = new SqlCommand(SqlExpresion, Manager.connection);
+                SqlParameter Code_orders_parameter = new SqlParameter("@Code_orders_vulue", order.Code_orders);
+                command.Parameters.Add(Code_orders_parameter);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Заказ получен");
+                Order_product();
+            }
+            catch (SqlException Error)
+            {
+                MessageBox.Show((Error.Number).ToString() + " " + Error.Message);
             }
         }
     }

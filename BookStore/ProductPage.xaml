@@ -54,10 +54,10 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="50" >
+                <DataGridTemplateColumn Width="54">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Click="AddButton_Click">
+                            <Button Click="AddButton_Click" Width="50">
                                 <Button.OpacityMask>
                                     <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\Shopin_cart.png" Stretch="UniformToFill"/>
                                 </Button.OpacityMask>

@@ -87,23 +87,5 @@ namespace BookStore
         {
             Manager.FrameMainWindow.GoBack();
         }
-
-        private void ClearButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                string SqlExpresion = "Delete from Orders where Buyers_login = @Login_buyer_vulue";
-                SqlCommand command = new SqlCommand(SqlExpresion, Manager.connection);
-                SqlParameter Login_buyer_parameter = new SqlParameter("@Login_buyer_vulue", Login_get);
-                command.Parameters.Add(Login_buyer_parameter);
-                command.ExecuteReader();
-                MessageBox.Show("Спасибо что выбрали нас");
-                Manager.FrameMainWindow.Navigate(new ProductPage(Login_get));
-            }
-            catch (SqlException Error)
-            {
-                MessageBox.Show((Error.Number).ToString()+ " " + Error.Message);
-            }
-        }
     }
 }

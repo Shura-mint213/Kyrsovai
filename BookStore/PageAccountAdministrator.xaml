@@ -75,7 +75,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <DataGrid  HeadersVisibility="None" x:Name="DataTableAdmin" Visibility="Hidden" HorizontalAlignment="Left" Height="342" VerticalAlignment="Top" Width="630" IsReadOnly="True" AutoGenerateColumns="True" Margin="153,85,0,0" >
             <DataGrid.BorderBrush>
                 <ImageBrush/>
@@ -94,7 +94,7 @@
                 <DataGridTemplateColumn Width="*" Header="Фамилия" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock FontSize="15" Text="{Binding Surname}"  VerticalAlignment="Center"/>
+                            <TextBlock FontSize="15" Text="{Binding Surname}" VerticalAlignment="Center"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -119,10 +119,62 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="50" >
+                <DataGridTemplateColumn Width="50">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Click="DeleteButton_Click" Height="40">
+                                <Button.OpacityMask>
+                                    <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\Delete.png" Stretch="UniformToFill"/>
+                                </Button.OpacityMask>
+                                <Button.Background>
+                                    <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\Delete.png" Stretch="UniformToFill"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Visibility="Hidden" Name="OrderDataGrid" HorizontalAlignment="Left" IsReadOnly="True" Height="266" Margin="178,85,0,0" VerticalAlignment="Top" Width="566">
+            <DataGrid.BorderBrush>
+                <ImageBrush/>
+            </DataGrid.BorderBrush>
+            <DataGrid.Background>
+                <ImageBrush/>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="*" Header="Код заказа">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock  FontSize="15" Text="{Binding Code_orders}" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Логин">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock  FontSize="15" Text="{Binding Login_user}" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Дата заказа">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock  FontSize="15" Text="{Binding Orders_date}" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Цена">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock  FontSize="15" Text="{Binding Price}" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" >
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <Button Click="DeleteOrderButton_Click" Width="40" Height="35">
                                 <Button.OpacityMask>
                                     <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\Delete.png" Stretch="UniformToFill"/>
                                 </Button.OpacityMask>
@@ -169,7 +221,14 @@
                 <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-
+        <Button Content="Заказы" HorizontalAlignment="Left" Margin="-6,220,0,0" VerticalAlignment="Top" Width="154" Height="25" Click="OrderProduct_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
+            </Button.Background>
+        </Button>
         <Button x:Name="AccountAdministratorExit" Content="Выход" HorizontalAlignment="Left" Margin="-6,365,0,0" VerticalAlignment="Top" Width="154" Click="AccountAdministratorExit_Click" Height="25">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>

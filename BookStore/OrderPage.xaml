@@ -50,6 +50,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        
             <Button Name="OrderButton" Content="Заказы" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top" Width="98" Click="OrderButton_Click">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
@@ -66,14 +67,7 @@
                 <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
             </Button.Background>
         </Button>
-        <Button Name="ClearButton" Content="Заказ пришел" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top" Width="103" Click="ClearButton_Click">
-            <Button.OpacityMask>
-                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
-            </Button.OpacityMask>
-            <Button.Background>
-                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
-            </Button.Background>
-        </Button>
+
 
     </Grid>
 </Page>
