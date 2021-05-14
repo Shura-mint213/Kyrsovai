@@ -62,12 +62,12 @@ namespace BookStore
                     Books.Add(st);
                 }
                 DataTableBasket.ItemsSource = Books;
-                DataTableBasket.Columns[5].Visibility = Visibility.Hidden;
                 DataTableBasket.Columns[6].Visibility = Visibility.Hidden;
                 DataTableBasket.Columns[7].Visibility = Visibility.Hidden;
                 DataTableBasket.Columns[8].Visibility = Visibility.Hidden;
                 DataTableBasket.Columns[9].Visibility = Visibility.Hidden;
                 DataTableBasket.Columns[10].Visibility = Visibility.Hidden;
+                DataTableBasket.Columns[11].Visibility = Visibility.Hidden;
             }
             reader.Close();
         }

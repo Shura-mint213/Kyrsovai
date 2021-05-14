@@ -57,6 +57,20 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="50" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="DeleteButton_Click" Height="40">
+                                <Button.OpacityMask>
+                                    <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\Delete.png" Stretch="UniformToFill"/>
+                                </Button.OpacityMask>
+                                <Button.Background>
+                                    <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\Delete.png" Stretch="UniformToFill"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="ButtonUpdate" Content="Товар" HorizontalAlignment="Left" Margin="0,101,0,0" VerticalAlignment="Top" Width="100" Click="ButtonUpdate_Click">
@@ -76,14 +90,6 @@
             </Button.Background>
         </Button>
         <Button Name="BuyButton" Content="Купить" HorizontalAlignment="Left" Margin="0,126,0,0" VerticalAlignment="Top" Width="100" Click="BuyButton_Click">
-            <Button.OpacityMask>
-                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
-            </Button.OpacityMask>
-            <Button.Background>
-                <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
-            </Button.Background>
-        </Button>
-        <Button Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="-1,151,0,0" VerticalAlignment="Top" Width="101" Click="DeleteButton_Click">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="C:\Users\иван\Desktop\курсовая\BookStore\img\LeftBookmark.png" Stretch="UniformToFill"/>
             </Button.OpacityMask>
