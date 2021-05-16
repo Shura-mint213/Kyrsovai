@@ -144,13 +144,23 @@ namespace BookStore
         {
             Manager.FrameMainWindow.Navigate(new EditBuyerPage(Login_get));
         }
-
+        public string CheckSymbol(string like)
+        {
+            like = like.Replace("[", "[[]");
+            like = like.Replace(";", "[;]");
+            like = like.Replace("--", "[--]");
+            like = like.Replace("'", "''");
+            like = like.Replace("_", "[_]");
+            like = like.Replace("%", "[%]");
+            return like;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataTableProduct.Visibility = Visibility.Visible;
             try
             {
                 string like = SearchTextBox.Text.Trim();
+                like = CheckSymbol(like);
                 string sqlExpression = "SELECT * FROM Books WHERE Name_book Like '%" + like + "%'"  ;
                 SqlCommand command = new SqlCommand(sqlExpression, Manager.connection);
                 List<Book> Books = new List<Book>();
@@ -169,7 +179,6 @@ namespace BookStore
                     DataTableProduct.Columns[4].Visibility = Visibility.Hidden;
                     DataTableProduct.Columns[5].Visibility = Visibility.Hidden;
                     DataTableProduct.Columns[6].Visibility = Visibility.Hidden;
-
                 }
                 reader.Close();
             }

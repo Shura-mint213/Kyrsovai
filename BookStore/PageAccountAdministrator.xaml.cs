@@ -250,7 +250,16 @@ namespace BookStore
         {
             Manager.FrameMainWindow.Navigate(new AddProductPage(Login));
         }
-
+        public string CheckSymbol(string like)
+        {
+            like = like.Replace("[", "[[]");
+            like = like.Replace(";", "[;]");
+            like = like.Replace("--", "[--]");
+            like = like.Replace("'", "''");
+            like = like.Replace("_", "[_]");
+            like = like.Replace("%", "[%]");
+            return like;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             OrderDataGrid.Visibility = Visibility.Hidden;
@@ -259,6 +268,7 @@ namespace BookStore
             try
             {
                 string like = SearchTextBox.Text.Trim();
+                like = CheckSymbol(like);
                 string sqlExpression = "SELECT * FROM Books WHERE Name_book Like '%" + like + "%'";
                 SqlCommand command = new SqlCommand(sqlExpression, Manager.connection);
                 List<Book> Books = new List<Book>();

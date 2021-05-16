@@ -44,7 +44,7 @@ namespace BookStore
 
             string sqlExpression = "SELECT dbo.Books.Code_book, dbo.Books.Photos, dbo.Books.Name_book, dbo.Books.Price, dbo.Basket.Quantity " +
                 "FROM dbo.Basket INNER JOIN dbo.Books ON dbo.Basket.Code_book = dbo.Books.Code_book " +
-                "WHERE(dbo.Basket.Buyers_login = @Buyer_login_value)"; //получаем код книг
+                "WHERE(dbo.Basket.Buyers_login = @Buyer_login_value)";
             SqlCommand command = new SqlCommand(sqlExpression, Manager.connection);
             SqlParameter Buyer_login_param = new SqlParameter("@Buyer_login_value", Login_get);
             command.Parameters.Add(Buyer_login_param);
